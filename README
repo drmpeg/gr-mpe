@@ -1,0 +1,75 @@
+# Copyright 2016 Ron Economos
+#
+# This file is part of gr-mpe
+#
+# gr-mpe is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3, or (at your option)
+# any later version.
+#
+# gr-mpe is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with gr-mpe; see the file COPYING.  If not, write to
+# the Free Software Foundation, Inc., 51 Franklin Street,
+# Boston, MA 02110-1301, USA.
+
+gr-mpe
+======
+
+Author: Ron Economos
+Email: <w6rz@comcast.net>
+
+The goal of this project is to build a GNU Radio block that implements
+the Multiprotocol encapsulation portion of ETSI EN 301 192 V1.6.1
+DVB specification for data broadcasting standard:
+
+http://www.etsi.org/deliver/etsi_en/301100_301199/301192/01.06.01_60/en_301192v010601p.pdf
+
+Usage:
+
+Because the Pcap library is used to capture raw packets, the capabilities
+of the Python interpreter need to be increased. This only needs to be
+done once.
+
+sudo setcap 'CAP_NET_RAW+eip CAP_NET_ADMIN+eip' /usr/bin/python2.7
+
+CAUTION: This allows any Python program to open network interfaces.
+
+The current implementation of the block uses a TAP network interface
+named tap0.
+
+To add a TAP interface (with ip(8) commands):
+
+sudo ip tuntap add dev tap0 mode tap
+
+sudo ip link set dev tap0 address 02:00:48:55:4c:4b
+
+sudo ip addr add 44.0.0.1/24 dev tap0
+
+sudo ip link set tap0 up
+
+sudo ip link set tap0 arp off
+
+To delete the TAP interface:
+
+sudo ip tuntap del dev tap0 mode tap
+
+Dependencies:
+
+libpcap-dev
+
+Build instructions:
+
+    mkdir build
+    cd build
+    cmake ../
+    make
+    sudo make install
+    sudo ldconfig
+
+Contributions are welcome!
+

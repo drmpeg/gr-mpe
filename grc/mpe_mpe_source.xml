@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<block>
+  <name>IP over TS Packet Source</name>
+  <key>mpe_mpe_source</key>
+  <category>[IP over TS (MPE)]</category>
+  <import>import mpe</import>
+  <make>mpe.mpe_source($mac_address)</make>
+  <param>
+    <name>MAC Address</name>
+    <key>mac_address</key>
+    <value></value>
+    <type>string</type>
+  </param>
+  <source>
+    <name>out</name>
+    <type>byte</type>
+  </source>
+</block>
