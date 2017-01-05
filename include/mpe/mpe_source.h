@@ -1,6 +1,6 @@
 /* -*- c++ -*- */
 /* 
- * Copyright 2016 Ron Economos.
+ * Copyright 2016,2017 Ron Economos.
  * 
  * This is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,11 +18,11 @@
  * Boston, MA 02110-1301, USA.
  */
 
-
 #ifndef INCLUDED_MPE_MPE_SOURCE_H
 #define INCLUDED_MPE_MPE_SOURCE_H
 
 #include <mpe/api.h>
+#include <mpe/mpe_config.h>
 #include <gnuradio/sync_block.h>
 
 namespace gr {
@@ -46,7 +46,7 @@ namespace gr {
        * class. mpe::mpe_source::make is the public interface for
        * creating new instances.
        */
-      static sptr make(char *mac_address);
+      static sptr make(char *mac_address, mpe_ping_reply_t ping_reply, mpe_ipaddr_spoof_t ipaddr_spoof, char *src_address, char *dst_address);
     };
 
   } // namespace mpe

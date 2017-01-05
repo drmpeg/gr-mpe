@@ -8,9 +8,11 @@
 %include "mpe_swig_doc.i"
 
 %{
+#include "mpe/mpe_config.h"
 #include "mpe/mpe_source.h"
 %}
 
 
+%include "mpe/mpe_config.h"
 %include "mpe/mpe_source.h"
 GR_SWIG_BLOCK_MAGIC2(mpe, mpe_source);

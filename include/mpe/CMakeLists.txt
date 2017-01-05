@@ -22,5 +22,6 @@
 ########################################################################
 install(FILES
     api.h
+    mpe_config.h
     mpe_source.h DESTINATION include/mpe
 )
