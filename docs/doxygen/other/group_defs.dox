@@ -1,0 +1,6 @@
+/*!
+ * \defgroup block GNU Radio MPE C++ Signal Processing Blocks
+ * \brief All C++ blocks that can be used from the MPE GNU Radio
+ *        module are listed here or in the subcategories below.
+ *
+ */
