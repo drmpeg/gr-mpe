@@ -29,6 +29,7 @@
 #include <netinet/ip.h>
 #include <net/if.h>
 #include <linux/if_tun.h>
+#include <fcntl.h>
 
 #define TRUE 1
 #define FALSE 0
