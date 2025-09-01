@@ -9,7 +9,7 @@
 ########################################################################
 # Setup library
 ########################################################################
-include(GrPlatform) #define LIB_SUFFIX
+include(GNUInstallDirs)
 
 list(APPEND mpe_sources
     mpe_source_impl.cc
@@ -25,7 +25,7 @@ add_library(gnuradio-mpe SHARED ${mpe_sources})
 target_link_libraries(gnuradio-mpe gnuradio::gnuradio-runtime ${PCAP_LIBRARIES})
 target_include_directories(gnuradio-mpe
     PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include>
-    PUBLIC $<INSTALL_INTERFACE:include>
+    PUBLIC $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
   )
 set_target_properties(gnuradio-mpe PROPERTIES DEFINE_SYMBOL "gnuradio_mpe_EXPORTS")
 
